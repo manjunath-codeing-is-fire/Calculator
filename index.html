@@ -1,0 +1,84 @@
+<!-- npx @tailwindcss/cli -i ./input.css -o ./output.css --watch -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <style type="text/tailwindcss">
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+        @import "tailwindcss";
+
+        @theme {
+            --font-display: "Poppins", sans-serif;
+            --color-cal-bg: #ffffff79;
+            --color-ho-white: #ffffffaa;
+            --color-ho-pink: #f6339baa;
+            --color-body-green:#58e208d0;
+            --color-body-yellow:#cfd909;
+            --color-body-pink:#e10c0c;
+            --ldeg:-220deg;
+            --icons-size:25px;
+        }
+
+        @utility bg-body-linear {
+            background-image: linear-gradient(var(--ldeg),var(--color-body-green),var(--color-body-yellow),var(--color-body-pink));
+        }
+
+        @utility flexCenter{
+            @apply flex items-center justify-center;
+        }
+
+        @utility icons-h-w {
+            @apply h-(--icons-size) w-(--icons-size);
+        }
+
+        @utility buttons-pro {
+            @apply text-2xl h-14 w-14 rounded-lg col-span-1 row-span-1 flexCenter bg-white hover:bg-ho-white;
+        }
+
+        @utility buttons-op-pro {
+            @apply text-2xl h-14 w-14 rounded-lg col-span-1 row-span-1 flexCenter bg-pink-500 hover:bg-ho-pink text-white;
+        }
+    </style>
+</head>
+
+<body class="flexCenter min-h-screen bg-body-linear font-display">
+    <div
+        class="h-[35rem] w-[22rem] bg-cal-bg rounded-xl px-[30px] py-[30px] grid grid-cols-4 grid-rows-6 gap-x-2 gap-y-5">
+
+        <div class="screen h-20 w-70 bg-white rounded-lg text-5xl flex items-end justify-end col-span-4"></div>
+
+        <button
+            class="ac col-span-2 row-span-1 h-14 border-none rounded-lg w-[8.2rem] text-2xl bg-white hover:bg-ho-white my-4">C</button>
+
+        <button class="delete buttons-pro my-4">
+            <img class="icons-h-w" src="https://img.icons8.com/ios-glyphs/30/long-arrow-left.png" alt="long-arrow-left"/>
+        </button>
+
+        <button class="div buttons-op-pro my-4">
+            <img class="icons-h-w" src="https://img.icons8.com/?size=100&id=9494&format=png&color=ffffff" alt="divide"/>
+        </button>
+        <button class="7 buttons-pro my-2">7</button>
+        <button class="8 buttons-pro my-2">8</button>
+        <button class="9 buttons-pro my-2">9</button>
+        <button class="mul buttons-op-pro my-2">X</button>
+        <button class="4 buttons-pro my-2">4</button>
+        <button class="5 buttons-pro my-2">5</button>
+        <button class="6 buttons-pro my-2">6</button>
+        <button class="min buttons-op-pro my-2">-</button>
+        <button class="1 buttons-pro my-2">1</button>
+        <button class="2 buttons-pro my-2">2</button>
+        <button class="3 buttons-pro my-2">3</button>
+        <button class="plus buttons-op-pro my-2">+</button>
+        <button class="0 text-2xl h-14 w-[8rem] rounded-lg col-span-2 bg-white hover:bg-ho-white my-2">0</button>
+        <button class="dot buttons-op-pro my-2">.</button>
+        <button class="eq buttons-op-pro my-2">=</button>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>
